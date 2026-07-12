@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(232, 121, 249, 0.12), transparent 55%),
+    radial-gradient(900px 700px at 50% 120%, rgba(163, 230, 53, 0.08), transparent 60%),
+    #060608;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* ---- Pad hit ripple ---- */
+@keyframes ripple {
+  0% {
+    transform: scale(0.25);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.pad-ripple {
+  animation: ripple 0.55s ease-out forwards;
+}
+
+.pad-flash {
+  animation: flash 0.28s ease-out forwards;
+}
+
+/* ---- Playhead pulse on the active sequencer column ---- */
+@keyframes stepPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.14);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.step-live {
+  animation: stepPulse 0.18s ease-out;
+}
+
+/* ---- Slider styling ---- */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.9);
+  border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.9);
+  border: none;
+}
